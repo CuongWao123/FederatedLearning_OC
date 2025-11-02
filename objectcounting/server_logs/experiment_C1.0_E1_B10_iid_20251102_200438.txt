@@ -1,0 +1,1365 @@
+======================================================================
+MNIST 2NN Federated Learning Experiment
+======================================================================
+Start Time: 2025-11-02 20:04:38
+Model: 2NN (199,210 parameters)
+
+Configuration:
+  Client Fraction (C): 1.0
+  Local Epochs (E): 1
+  Batch Size (B): 10
+  Learning Rate: 0.01
+  Data Partitioning: IID
+  Max Rounds: 100
+======================================================================
+
+
+======================================================================
+STRATEGY CONFIGURATION
+======================================================================
+Sampling:
+  ├── Fraction: train (1.00) | evaluate (1.00)
+  ├── Minimum nodes: train (2) | evaluate (2)
+  └── Minimum available nodes: 2
+
+Keys in records:
+  ├── Weighted by: 'num-examples'
+  ├── ArrayRecord key: 'arrays'
+  └── ConfigRecord key: 'config'
+======================================================================
+
+
+======================================================================
+STRATEGY CONFIGURATION
+======================================================================
+Sampling:
+  ├── Fraction: train (1.00) | evaluate (1.00)
+  ├── Minimum nodes: train (2) | evaluate (2)
+  └── Minimum available nodes: 2
+
+Keys in records:
+  ├── Weighted by: 'num-examples'
+  ├── ArrayRecord key: 'arrays'
+  └── ConfigRecord key: 'config'
+======================================================================
+
+[Round 1] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 1] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2616e+00
+[Round 1] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 1] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 2.2001, Acc: 0.3486 (34.86%)
+----------------------------------------------------------------------
+[Round 2] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 2] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1134e+00
+[Round 2] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 2] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 2.0066, Acc: 0.5707 (57.07%)
+----------------------------------------------------------------------
+[Round 3] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 3] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8538e+00
+[Round 3] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 3] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 1.6724, Acc: 0.6797 (67.97%)
+----------------------------------------------------------------------
+[Round 4] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 4] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.4708e+00
+[Round 4] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 4] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 1.2607, Acc: 0.7503 (75.03%)
+----------------------------------------------------------------------
+[Round 5] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 5] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.1021e+00
+[Round 5] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 5] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.9496, Acc: 0.8028 (80.28%)
+----------------------------------------------------------------------
+[Round 6] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 6] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 8.6126e-01
+[Round 6] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 6] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.7644, Acc: 0.8295 (82.95%)
+----------------------------------------------------------------------
+[Round 7] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 7] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 7.1700e-01
+[Round 7] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 7] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.6514, Acc: 0.8453 (84.53%)
+----------------------------------------------------------------------
+[Round 8] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 8] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 6.2604e-01
+[Round 8] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 8] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.5774, Acc: 0.8559 (85.59%)
+----------------------------------------------------------------------
+[Round 9] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 9] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 5.6477e-01
+[Round 9] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 9] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.5253, Acc: 0.8667 (86.67%)
+----------------------------------------------------------------------
+[Round 10] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 10] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 5.2009e-01
+[Round 10] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 10] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.4874, Acc: 0.8730 (87.30%)
+----------------------------------------------------------------------
+[Round 11] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 11] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 4.8576e-01
+[Round 11] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 11] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.4582, Acc: 0.8792 (87.92%)
+----------------------------------------------------------------------
+[Round 12] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 12] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 4.6056e-01
+[Round 12] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 12] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.4356, Acc: 0.8838 (88.38%)
+----------------------------------------------------------------------
+[Round 13] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 13] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 4.4061e-01
+[Round 13] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 13] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.4174, Acc: 0.8865 (88.65%)
+----------------------------------------------------------------------
+[Round 14] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 14] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 4.2395e-01
+[Round 14] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 14] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.4027, Acc: 0.8897 (88.97%)
+----------------------------------------------------------------------
+[Round 15] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 15] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 4.0919e-01
+[Round 15] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 15] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3897, Acc: 0.8920 (89.20%)
+----------------------------------------------------------------------
+[Round 16] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 16] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.9739e-01
+[Round 16] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 16] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3791, Acc: 0.8941 (89.41%)
+----------------------------------------------------------------------
+[Round 17] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 17] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.8646e-01
+[Round 17] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 17] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3700, Acc: 0.8957 (89.57%)
+----------------------------------------------------------------------
+[Round 18] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 18] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.7739e-01
+[Round 18] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 18] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3614, Acc: 0.8969 (89.69%)
+----------------------------------------------------------------------
+[Round 19] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 19] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.6973e-01
+[Round 19] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 19] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3542, Acc: 0.8978 (89.78%)
+----------------------------------------------------------------------
+[Round 20] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 20] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.6219e-01
+[Round 20] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 20] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3477, Acc: 0.8988 (89.88%)
+----------------------------------------------------------------------
+[Round 21] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 21] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.5462e-01
+[Round 21] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 21] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3418, Acc: 0.9008 (90.08%)
+----------------------------------------------------------------------
+[Round 22] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 22] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.4813e-01
+[Round 22] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 22] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3358, Acc: 0.9022 (90.22%)
+----------------------------------------------------------------------
+[Round 23] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 23] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.4297e-01
+[Round 23] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 23] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3308, Acc: 0.9032 (90.32%)
+----------------------------------------------------------------------
+[Round 24] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 24] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.3751e-01
+[Round 24] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 24] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3259, Acc: 0.9043 (90.43%)
+----------------------------------------------------------------------
+[Round 25] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 25] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.3219e-01
+[Round 25] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 25] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3220, Acc: 0.9061 (90.61%)
+----------------------------------------------------------------------
+[Round 26] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 26] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.2703e-01
+[Round 26] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 26] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3174, Acc: 0.9073 (90.73%)
+----------------------------------------------------------------------
+[Round 27] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 27] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.2191e-01
+[Round 27] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 27] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3137, Acc: 0.9083 (90.83%)
+----------------------------------------------------------------------
+[Round 28] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 28] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.1864e-01
+[Round 28] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 28] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3097, Acc: 0.9091 (90.91%)
+----------------------------------------------------------------------
+[Round 29] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 29] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.1443e-01
+[Round 29] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 29] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3064, Acc: 0.9098 (90.98%)
+----------------------------------------------------------------------
+[Round 30] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 30] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.1055e-01
+[Round 30] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 30] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3031, Acc: 0.9104 (91.04%)
+----------------------------------------------------------------------
+[Round 31] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 31] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.0649e-01
+[Round 31] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 31] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.3004, Acc: 0.9107 (91.07%)
+----------------------------------------------------------------------
+[Round 32] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 32] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 3.0322e-01
+[Round 32] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 32] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2964, Acc: 0.9122 (91.22%)
+----------------------------------------------------------------------
+[Round 33] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 33] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.9930e-01
+[Round 33] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 33] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2934, Acc: 0.9127 (91.27%)
+----------------------------------------------------------------------
+[Round 34] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 34] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.9630e-01
+[Round 34] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 34] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2906, Acc: 0.9138 (91.38%)
+----------------------------------------------------------------------
+[Round 35] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 35] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.9252e-01
+[Round 35] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 35] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2880, Acc: 0.9149 (91.49%)
+----------------------------------------------------------------------
+[Round 36] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 36] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.8840e-01
+[Round 36] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 36] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2852, Acc: 0.9153 (91.53%)
+----------------------------------------------------------------------
+[Round 37] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 37] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.8676e-01
+[Round 37] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 37] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2829, Acc: 0.9160 (91.60%)
+----------------------------------------------------------------------
+[Round 38] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 38] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.8330e-01
+[Round 38] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 38] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2803, Acc: 0.9166 (91.66%)
+----------------------------------------------------------------------
+[Round 39] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 39] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.8034e-01
+[Round 39] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 39] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2776, Acc: 0.9174 (91.74%)
+----------------------------------------------------------------------
+[Round 40] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 40] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.7805e-01
+[Round 40] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 40] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2751, Acc: 0.9180 (91.80%)
+----------------------------------------------------------------------
+[Round 41] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 41] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.7448e-01
+[Round 41] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 41] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2728, Acc: 0.9187 (91.87%)
+----------------------------------------------------------------------
+[Round 42] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 42] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.7177e-01
+[Round 42] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 42] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2709, Acc: 0.9190 (91.90%)
+----------------------------------------------------------------------
+[Round 43] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 43] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.6901e-01
+[Round 43] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 43] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2682, Acc: 0.9198 (91.98%)
+----------------------------------------------------------------------
+[Round 44] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 44] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.6719e-01
+[Round 44] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 44] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2662, Acc: 0.9203 (92.03%)
+----------------------------------------------------------------------
+[Round 45] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 45] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.6349e-01
+[Round 45] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 45] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2641, Acc: 0.9201 (92.01%)
+----------------------------------------------------------------------
+[Round 46] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 46] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.6177e-01
+[Round 46] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 46] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2619, Acc: 0.9214 (92.14%)
+----------------------------------------------------------------------
+[Round 47] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 47] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.5906e-01
+[Round 47] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 47] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2599, Acc: 0.9215 (92.15%)
+----------------------------------------------------------------------
+[Round 48] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 48] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.5688e-01
+[Round 48] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 48] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2580, Acc: 0.9221 (92.21%)
+----------------------------------------------------------------------
+[Round 49] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 49] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.5398e-01
+[Round 49] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 49] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2559, Acc: 0.9228 (92.28%)
+----------------------------------------------------------------------
+[Round 50] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 50] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.5217e-01
+[Round 50] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 50] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2540, Acc: 0.9239 (92.39%)
+----------------------------------------------------------------------
+[Round 51] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 51] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.4911e-01
+[Round 51] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 51] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2518, Acc: 0.9241 (92.41%)
+----------------------------------------------------------------------
+[Round 52] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 52] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.4725e-01
+[Round 52] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 52] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2499, Acc: 0.9247 (92.47%)
+----------------------------------------------------------------------
+[Round 53] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 53] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.4515e-01
+[Round 53] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 53] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2480, Acc: 0.9252 (92.52%)
+----------------------------------------------------------------------
+[Round 54] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 54] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.4332e-01
+[Round 54] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 54] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2463, Acc: 0.9257 (92.57%)
+----------------------------------------------------------------------
+[Round 55] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 55] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.4049e-01
+[Round 55] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 55] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2449, Acc: 0.9261 (92.61%)
+----------------------------------------------------------------------
+[Round 56] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 56] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.3932e-01
+[Round 56] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 56] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2431, Acc: 0.9264 (92.64%)
+----------------------------------------------------------------------
+[Round 57] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 57] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.3684e-01
+[Round 57] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 57] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2409, Acc: 0.9272 (92.72%)
+----------------------------------------------------------------------
+[Round 58] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 58] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.3517e-01
+[Round 58] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 58] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2394, Acc: 0.9278 (92.78%)
+----------------------------------------------------------------------
+[Round 59] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 59] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.3297e-01
+[Round 59] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 59] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2378, Acc: 0.9280 (92.80%)
+----------------------------------------------------------------------
+[Round 60] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 60] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.3069e-01
+[Round 60] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 60] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2363, Acc: 0.9284 (92.84%)
+----------------------------------------------------------------------
+[Round 61] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 61] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2870e-01
+[Round 61] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 61] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2343, Acc: 0.9291 (92.91%)
+----------------------------------------------------------------------
+[Round 62] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 62] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2710e-01
+[Round 62] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 62] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2326, Acc: 0.9297 (92.97%)
+----------------------------------------------------------------------
+[Round 63] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 63] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2536e-01
+[Round 63] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 63] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2313, Acc: 0.9296 (92.96%)
+----------------------------------------------------------------------
+[Round 64] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 64] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2366e-01
+[Round 64] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 64] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2294, Acc: 0.9307 (93.07%)
+----------------------------------------------------------------------
+[Round 65] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 65] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.2151e-01
+[Round 65] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 65] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2280, Acc: 0.9314 (93.14%)
+----------------------------------------------------------------------
+[Round 66] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 66] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1960e-01
+[Round 66] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 66] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2264, Acc: 0.9315 (93.15%)
+----------------------------------------------------------------------
+[Round 67] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 67] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1769e-01
+[Round 67] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 67] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2252, Acc: 0.9317 (93.17%)
+----------------------------------------------------------------------
+[Round 68] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 68] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1597e-01
+[Round 68] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 68] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2234, Acc: 0.9328 (93.28%)
+----------------------------------------------------------------------
+[Round 69] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 69] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1463e-01
+[Round 69] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 69] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2221, Acc: 0.9331 (93.31%)
+----------------------------------------------------------------------
+[Round 70] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 70] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1283e-01
+[Round 70] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 70] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2205, Acc: 0.9341 (93.41%)
+----------------------------------------------------------------------
+[Round 71] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 71] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.1098e-01
+[Round 71] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 71] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2189, Acc: 0.9349 (93.49%)
+----------------------------------------------------------------------
+[Round 72] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 72] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0950e-01
+[Round 72] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 72] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2176, Acc: 0.9347 (93.47%)
+----------------------------------------------------------------------
+[Round 73] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 73] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0824e-01
+[Round 73] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 73] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2162, Acc: 0.9354 (93.54%)
+----------------------------------------------------------------------
+[Round 74] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 74] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0651e-01
+[Round 74] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 74] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2146, Acc: 0.9357 (93.57%)
+----------------------------------------------------------------------
+[Round 75] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 75] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0458e-01
+[Round 75] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 75] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2134, Acc: 0.9360 (93.60%)
+----------------------------------------------------------------------
+[Round 76] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 76] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0307e-01
+[Round 76] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 76] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2119, Acc: 0.9360 (93.60%)
+----------------------------------------------------------------------
+[Round 77] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 77] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0099e-01
+[Round 77] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 77] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2110, Acc: 0.9369 (93.69%)
+----------------------------------------------------------------------
+[Round 78] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 78] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 2.0019e-01
+[Round 78] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 78] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2094, Acc: 0.9375 (93.75%)
+----------------------------------------------------------------------
+[Round 79] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 79] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9802e-01
+[Round 79] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 79] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2082, Acc: 0.9382 (93.82%)
+----------------------------------------------------------------------
+[Round 80] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 80] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9780e-01
+[Round 80] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 80] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2069, Acc: 0.9385 (93.85%)
+----------------------------------------------------------------------
+[Round 81] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 81] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9598e-01
+[Round 81] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 81] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2056, Acc: 0.9391 (93.91%)
+----------------------------------------------------------------------
+[Round 82] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 82] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9376e-01
+[Round 82] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 82] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2044, Acc: 0.9394 (93.94%)
+----------------------------------------------------------------------
+[Round 83] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 83] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9298e-01
+[Round 83] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 83] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2032, Acc: 0.9399 (93.99%)
+----------------------------------------------------------------------
+[Round 84] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 84] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.9115e-01
+[Round 84] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 84] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2021, Acc: 0.9403 (94.03%)
+----------------------------------------------------------------------
+[Round 85] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 85] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8935e-01
+[Round 85] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 85] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.2008, Acc: 0.9406 (94.06%)
+----------------------------------------------------------------------
+[Round 86] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 86] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8863e-01
+[Round 86] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 86] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1994, Acc: 0.9409 (94.09%)
+----------------------------------------------------------------------
+[Round 87] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 87] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8717e-01
+[Round 87] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 87] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1984, Acc: 0.9410 (94.10%)
+----------------------------------------------------------------------
+[Round 88] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 88] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8601e-01
+[Round 88] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 88] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1971, Acc: 0.9416 (94.16%)
+----------------------------------------------------------------------
+[Round 89] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 89] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8425e-01
+[Round 89] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 89] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1961, Acc: 0.9424 (94.24%)
+----------------------------------------------------------------------
+[Round 90] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 90] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8341e-01
+[Round 90] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 90] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1948, Acc: 0.9417 (94.17%)
+----------------------------------------------------------------------
+[Round 91] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 91] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8213e-01
+[Round 91] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 91] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1938, Acc: 0.9430 (94.30%)
+----------------------------------------------------------------------
+[Round 92] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 92] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.8074e-01
+[Round 92] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 92] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1927, Acc: 0.9432 (94.32%)
+----------------------------------------------------------------------
+[Round 93] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 93] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7898e-01
+[Round 93] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 93] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1916, Acc: 0.9433 (94.33%)
+----------------------------------------------------------------------
+[Round 94] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 94] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7756e-01
+[Round 94] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 94] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1906, Acc: 0.9437 (94.37%)
+----------------------------------------------------------------------
+[Round 95] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 95] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7657e-01
+[Round 95] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 95] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1897, Acc: 0.9440 (94.40%)
+----------------------------------------------------------------------
+[Round 96] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 96] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7605e-01
+[Round 96] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 96] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1884, Acc: 0.9442 (94.42%)
+----------------------------------------------------------------------
+[Round 97] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 97] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7480e-01
+[Round 97] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 97] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1875, Acc: 0.9451 (94.51%)
+----------------------------------------------------------------------
+[Round 98] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 98] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7326e-01
+[Round 98] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 98] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1864, Acc: 0.9445 (94.45%)
+----------------------------------------------------------------------
+[Round 99] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 99] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7227e-01
+[Round 99] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 99] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1855, Acc: 0.9453 (94.53%)
+----------------------------------------------------------------------
+[Round 100] Configure Train: Sampled 100 nodes (out of 100)
+
+[Round 100] Aggregate Train:
+  ├── Received 100 results and 0 failures
+  └── Average Train Loss: 1.7099e-01
+[Round 100] Configure Evaluate: Sampled 100 nodes (out of 100)
+
+[Round 100] Aggregate Evaluate:
+  ├── Received 100 results and 0 failures
+  └── Loss: 0.1846, Acc: 0.9454 (94.54%)
+----------------------------------------------------------------------
+
+======================================================================
+EXPERIMENT SUMMARY
+======================================================================
+End Time: 2025-11-02 20:21:19
+Total Duration: 0:16:37.520133
+Total Rounds Completed: 100
+
+✗ Target Accuracy (97%) not reached
+  Best accuracy: 0.9454 (94.54%) at round 100
+
+======================================================================
+ALL TRAINING METRICS
+======================================================================
+1: {'train_loss': '2.2616e+00'}
+2: {'train_loss': '2.1134e+00'}
+3: {'train_loss': '1.8538e+00'}
+4: {'train_loss': '1.4708e+00'}
+5: {'train_loss': '1.1021e+00'}
+6: {'train_loss': '8.6126e-01'}
+7: {'train_loss': '7.1700e-01'}
+8: {'train_loss': '6.2604e-01'}
+9: {'train_loss': '5.6477e-01'}
+10: {'train_loss': '5.2009e-01'}
+11: {'train_loss': '4.8576e-01'}
+12: {'train_loss': '4.6056e-01'}
+13: {'train_loss': '4.4061e-01'}
+14: {'train_loss': '4.2395e-01'}
+15: {'train_loss': '4.0919e-01'}
+16: {'train_loss': '3.9739e-01'}
+17: {'train_loss': '3.8646e-01'}
+18: {'train_loss': '3.7739e-01'}
+19: {'train_loss': '3.6973e-01'}
+20: {'train_loss': '3.6219e-01'}
+21: {'train_loss': '3.5462e-01'}
+22: {'train_loss': '3.4813e-01'}
+23: {'train_loss': '3.4297e-01'}
+24: {'train_loss': '3.3751e-01'}
+25: {'train_loss': '3.3219e-01'}
+26: {'train_loss': '3.2703e-01'}
+27: {'train_loss': '3.2191e-01'}
+28: {'train_loss': '3.1864e-01'}
+29: {'train_loss': '3.1443e-01'}
+30: {'train_loss': '3.1055e-01'}
+31: {'train_loss': '3.0649e-01'}
+32: {'train_loss': '3.0322e-01'}
+33: {'train_loss': '2.9930e-01'}
+34: {'train_loss': '2.9630e-01'}
+35: {'train_loss': '2.9252e-01'}
+36: {'train_loss': '2.8840e-01'}
+37: {'train_loss': '2.8676e-01'}
+38: {'train_loss': '2.8330e-01'}
+39: {'train_loss': '2.8034e-01'}
+40: {'train_loss': '2.7805e-01'}
+41: {'train_loss': '2.7448e-01'}
+42: {'train_loss': '2.7177e-01'}
+43: {'train_loss': '2.6901e-01'}
+44: {'train_loss': '2.6719e-01'}
+45: {'train_loss': '2.6349e-01'}
+46: {'train_loss': '2.6177e-01'}
+47: {'train_loss': '2.5906e-01'}
+48: {'train_loss': '2.5688e-01'}
+49: {'train_loss': '2.5398e-01'}
+50: {'train_loss': '2.5217e-01'}
+51: {'train_loss': '2.4911e-01'}
+52: {'train_loss': '2.4725e-01'}
+53: {'train_loss': '2.4515e-01'}
+54: {'train_loss': '2.4332e-01'}
+55: {'train_loss': '2.4049e-01'}
+56: {'train_loss': '2.3932e-01'}
+57: {'train_loss': '2.3684e-01'}
+58: {'train_loss': '2.3517e-01'}
+59: {'train_loss': '2.3297e-01'}
+60: {'train_loss': '2.3069e-01'}
+61: {'train_loss': '2.2870e-01'}
+62: {'train_loss': '2.2710e-01'}
+63: {'train_loss': '2.2536e-01'}
+64: {'train_loss': '2.2366e-01'}
+65: {'train_loss': '2.2151e-01'}
+66: {'train_loss': '2.1960e-01'}
+67: {'train_loss': '2.1769e-01'}
+68: {'train_loss': '2.1597e-01'}
+69: {'train_loss': '2.1463e-01'}
+70: {'train_loss': '2.1283e-01'}
+71: {'train_loss': '2.1098e-01'}
+72: {'train_loss': '2.0950e-01'}
+73: {'train_loss': '2.0824e-01'}
+74: {'train_loss': '2.0651e-01'}
+75: {'train_loss': '2.0458e-01'}
+76: {'train_loss': '2.0307e-01'}
+77: {'train_loss': '2.0099e-01'}
+78: {'train_loss': '2.0019e-01'}
+79: {'train_loss': '1.9802e-01'}
+80: {'train_loss': '1.9780e-01'}
+81: {'train_loss': '1.9598e-01'}
+82: {'train_loss': '1.9376e-01'}
+83: {'train_loss': '1.9298e-01'}
+84: {'train_loss': '1.9115e-01'}
+85: {'train_loss': '1.8935e-01'}
+86: {'train_loss': '1.8863e-01'}
+87: {'train_loss': '1.8717e-01'}
+88: {'train_loss': '1.8601e-01'}
+89: {'train_loss': '1.8425e-01'}
+90: {'train_loss': '1.8341e-01'}
+91: {'train_loss': '1.8213e-01'}
+92: {'train_loss': '1.8074e-01'}
+93: {'train_loss': '1.7898e-01'}
+94: {'train_loss': '1.7756e-01'}
+95: {'train_loss': '1.7657e-01'}
+96: {'train_loss': '1.7605e-01'}
+97: {'train_loss': '1.7480e-01'}
+98: {'train_loss': '1.7326e-01'}
+99: {'train_loss': '1.7227e-01'}
+100: {'train_loss': '1.7099e-01'}
+
+======================================================================
+ALL EVALUATION METRICS
+======================================================================
+1: {'eval_acc': '3.4858e-01', 'eval_loss': '2.2001e+00'}
+2: {'eval_acc': '5.7075e-01', 'eval_loss': '2.0066e+00'}
+3: {'eval_acc': '6.7967e-01', 'eval_loss': '1.6724e+00'}
+4: {'eval_acc': '7.5033e-01', 'eval_loss': '1.2607e+00'}
+5: {'eval_acc': '8.0275e-01', 'eval_loss': '9.4963e-01'}
+6: {'eval_acc': '8.2950e-01', 'eval_loss': '7.6439e-01'}
+7: {'eval_acc': '8.4525e-01', 'eval_loss': '6.5137e-01'}
+8: {'eval_acc': '8.5592e-01', 'eval_loss': '5.7739e-01'}
+9: {'eval_acc': '8.6667e-01', 'eval_loss': '5.2534e-01'}
+10: {'eval_acc': '8.7300e-01', 'eval_loss': '4.8740e-01'}
+11: {'eval_acc': '8.7925e-01', 'eval_loss': '4.5815e-01'}
+12: {'eval_acc': '8.8383e-01', 'eval_loss': '4.3561e-01'}
+13: {'eval_acc': '8.8650e-01', 'eval_loss': '4.1739e-01'}
+14: {'eval_acc': '8.8975e-01', 'eval_loss': '4.0271e-01'}
+15: {'eval_acc': '8.9200e-01', 'eval_loss': '3.8970e-01'}
+16: {'eval_acc': '8.9408e-01', 'eval_loss': '3.7911e-01'}
+17: {'eval_acc': '8.9567e-01', 'eval_loss': '3.6996e-01'}
+18: {'eval_acc': '8.9692e-01', 'eval_loss': '3.6136e-01'}
+19: {'eval_acc': '8.9783e-01', 'eval_loss': '3.5425e-01'}
+20: {'eval_acc': '8.9883e-01', 'eval_loss': '3.4768e-01'}
+21: {'eval_acc': '9.0075e-01', 'eval_loss': '3.4181e-01'}
+22: {'eval_acc': '9.0225e-01', 'eval_loss': '3.3582e-01'}
+23: {'eval_acc': '9.0317e-01', 'eval_loss': '3.3076e-01'}
+24: {'eval_acc': '9.0433e-01', 'eval_loss': '3.2591e-01'}
+25: {'eval_acc': '9.0608e-01', 'eval_loss': '3.2200e-01'}
+26: {'eval_acc': '9.0733e-01', 'eval_loss': '3.1738e-01'}
+27: {'eval_acc': '9.0833e-01', 'eval_loss': '3.1367e-01'}
+28: {'eval_acc': '9.0908e-01', 'eval_loss': '3.0974e-01'}
+29: {'eval_acc': '9.0983e-01', 'eval_loss': '3.0637e-01'}
+30: {'eval_acc': '9.1042e-01', 'eval_loss': '3.0312e-01'}
+31: {'eval_acc': '9.1067e-01', 'eval_loss': '3.0040e-01'}
+32: {'eval_acc': '9.1217e-01', 'eval_loss': '2.9639e-01'}
+33: {'eval_acc': '9.1267e-01', 'eval_loss': '2.9341e-01'}
+34: {'eval_acc': '9.1383e-01', 'eval_loss': '2.9056e-01'}
+35: {'eval_acc': '9.1492e-01', 'eval_loss': '2.8796e-01'}
+36: {'eval_acc': '9.1533e-01', 'eval_loss': '2.8523e-01'}
+37: {'eval_acc': '9.1600e-01', 'eval_loss': '2.8286e-01'}
+38: {'eval_acc': '9.1658e-01', 'eval_loss': '2.8027e-01'}
+39: {'eval_acc': '9.1742e-01', 'eval_loss': '2.7763e-01'}
+40: {'eval_acc': '9.1800e-01', 'eval_loss': '2.7510e-01'}
+41: {'eval_acc': '9.1867e-01', 'eval_loss': '2.7277e-01'}
+42: {'eval_acc': '9.1900e-01', 'eval_loss': '2.7091e-01'}
+43: {'eval_acc': '9.1983e-01', 'eval_loss': '2.6821e-01'}
+44: {'eval_acc': '9.2033e-01', 'eval_loss': '2.6619e-01'}
+45: {'eval_acc': '9.2008e-01', 'eval_loss': '2.6410e-01'}
+46: {'eval_acc': '9.2142e-01', 'eval_loss': '2.6192e-01'}
+47: {'eval_acc': '9.2150e-01', 'eval_loss': '2.5989e-01'}
+48: {'eval_acc': '9.2208e-01', 'eval_loss': '2.5799e-01'}
+49: {'eval_acc': '9.2275e-01', 'eval_loss': '2.5595e-01'}
+50: {'eval_acc': '9.2392e-01', 'eval_loss': '2.5397e-01'}
+51: {'eval_acc': '9.2408e-01', 'eval_loss': '2.5180e-01'}
+52: {'eval_acc': '9.2467e-01', 'eval_loss': '2.4991e-01'}
+53: {'eval_acc': '9.2517e-01', 'eval_loss': '2.4803e-01'}
+54: {'eval_acc': '9.2567e-01', 'eval_loss': '2.4632e-01'}
+55: {'eval_acc': '9.2608e-01', 'eval_loss': '2.4491e-01'}
+56: {'eval_acc': '9.2642e-01', 'eval_loss': '2.4311e-01'}
+57: {'eval_acc': '9.2725e-01', 'eval_loss': '2.4093e-01'}
+58: {'eval_acc': '9.2775e-01', 'eval_loss': '2.3942e-01'}
+59: {'eval_acc': '9.2800e-01', 'eval_loss': '2.3778e-01'}
+60: {'eval_acc': '9.2842e-01', 'eval_loss': '2.3630e-01'}
+61: {'eval_acc': '9.2908e-01', 'eval_loss': '2.3432e-01'}
+62: {'eval_acc': '9.2967e-01', 'eval_loss': '2.3259e-01'}
+63: {'eval_acc': '9.2958e-01', 'eval_loss': '2.3127e-01'}
+64: {'eval_acc': '9.3067e-01', 'eval_loss': '2.2943e-01'}
+65: {'eval_acc': '9.3142e-01', 'eval_loss': '2.2802e-01'}
+66: {'eval_acc': '9.3150e-01', 'eval_loss': '2.2644e-01'}
+67: {'eval_acc': '9.3175e-01', 'eval_loss': '2.2516e-01'}
+68: {'eval_acc': '9.3275e-01', 'eval_loss': '2.2338e-01'}
+69: {'eval_acc': '9.3308e-01', 'eval_loss': '2.2207e-01'}
+70: {'eval_acc': '9.3408e-01', 'eval_loss': '2.2049e-01'}
+71: {'eval_acc': '9.3492e-01', 'eval_loss': '2.1892e-01'}
+72: {'eval_acc': '9.3475e-01', 'eval_loss': '2.1755e-01'}
+73: {'eval_acc': '9.3542e-01', 'eval_loss': '2.1620e-01'}
+74: {'eval_acc': '9.3567e-01', 'eval_loss': '2.1463e-01'}
+75: {'eval_acc': '9.3600e-01', 'eval_loss': '2.1341e-01'}
+76: {'eval_acc': '9.3600e-01', 'eval_loss': '2.1191e-01'}
+77: {'eval_acc': '9.3692e-01', 'eval_loss': '2.1097e-01'}
+78: {'eval_acc': '9.3750e-01', 'eval_loss': '2.0940e-01'}
+79: {'eval_acc': '9.3817e-01', 'eval_loss': '2.0817e-01'}
+80: {'eval_acc': '9.3850e-01', 'eval_loss': '2.0688e-01'}
+81: {'eval_acc': '9.3908e-01', 'eval_loss': '2.0555e-01'}
+82: {'eval_acc': '9.3942e-01', 'eval_loss': '2.0443e-01'}
+83: {'eval_acc': '9.3992e-01', 'eval_loss': '2.0323e-01'}
+84: {'eval_acc': '9.4025e-01', 'eval_loss': '2.0213e-01'}
+85: {'eval_acc': '9.4058e-01', 'eval_loss': '2.0077e-01'}
+86: {'eval_acc': '9.4092e-01', 'eval_loss': '1.9937e-01'}
+87: {'eval_acc': '9.4100e-01', 'eval_loss': '1.9843e-01'}
+88: {'eval_acc': '9.4158e-01', 'eval_loss': '1.9715e-01'}
+89: {'eval_acc': '9.4242e-01', 'eval_loss': '1.9606e-01'}
+90: {'eval_acc': '9.4167e-01', 'eval_loss': '1.9483e-01'}
+91: {'eval_acc': '9.4300e-01', 'eval_loss': '1.9380e-01'}
+92: {'eval_acc': '9.4317e-01', 'eval_loss': '1.9268e-01'}
+93: {'eval_acc': '9.4325e-01', 'eval_loss': '1.9156e-01'}
+94: {'eval_acc': '9.4367e-01', 'eval_loss': '1.9056e-01'}
+95: {'eval_acc': '9.4400e-01', 'eval_loss': '1.8974e-01'}
+96: {'eval_acc': '9.4417e-01', 'eval_loss': '1.8843e-01'}
+97: {'eval_acc': '9.4508e-01', 'eval_loss': '1.8751e-01'}
+98: {'eval_acc': '9.4450e-01', 'eval_loss': '1.8644e-01'}
+99: {'eval_acc': '9.4533e-01', 'eval_loss': '1.8551e-01'}
+100: {'eval_acc': '9.4542e-01', 'eval_loss': '1.8456e-01'}
+
+======================================================================

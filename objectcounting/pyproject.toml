@@ -1,5 +1,6 @@
 # =====================================================================
-# For a full TOML configuration guide, check the Flower docs:
+# MNIST 2NN Federated Learning Experiments
+# Replicating FedAvg paper (McMahan et al., 2017)
 # https://flower.ai/docs/framework/how-to-configure-pyproject-toml.html
 # =====================================================================
 
@@ -10,14 +11,14 @@ build-backend = "hatchling.build"
 [project]
 name = "objectcounting"
 version = "1.0.0"
-description = ""
+description = "Federated Learning with MNIST 2NN - FedAvg experiments"
 license = "Apache-2.0"
 # Dependencies for your Flower App
 dependencies = [
     "flwr[simulation]>=1.22.0",
     "flwr-datasets[vision]>=0.5.0",
-    "torch==2.7.1",
-    "torchvision==0.22.1",
+    "torch==2.5.0",
+    "torchvision==0.20.0",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -32,19 +33,22 @@ serverapp = "objectcounting.server_app:app"
 clientapp = "objectcounting.client_app:app"
 
 # Custom config values accessible via `context.run_config`
+# Default configuration for MNIST 2NN experiments (Table 1 from paper)
 [tool.flwr.app.config]
-num-server-rounds = 3
-fraction-train = 0.5
-local-epochs = 1
-lr = 0.01
+num-server-rounds = 100       # Max rounds (will vary by experiment)
+fraction-train = 1.0          # C=1.0 (100% of clients per round)
+local-epochs = 1              # E=1 for 2NN model
+lr = 0.01                     # Learning rate
+iid = true                    # IID data partitioning (set false for Non-IID)
+batch-size = 10               # B=10 (set to -1 or 0 for full batch B=∞)
 
 # Default federation to use when running the app
 [tool.flwr.federations]
 default = "local-simulation"
 
-# Local simulation federation with 10 virtual SuperNodes
+# Local simulation federation with 100 virtual SuperNodes (as in paper)
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 10
+options.num-supernodes = 100  # 100 clients as specified in FedAvg paper
 
 # Remote federation example for use with SuperLink
 [tool.flwr.federations.remote-federation]
