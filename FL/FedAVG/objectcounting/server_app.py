@@ -1,6 +1,5 @@
 """ObjectCounting: A Flower / PyTorch app."""
 
-import torch
 from datetime import datetime
 from flwr.app import ArrayRecord, ConfigRecord, Context
 from flwr.serverapp import Grid, ServerApp

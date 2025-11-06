@@ -35,3 +35,7 @@ You can run Flower on Docker too! Check out the [Flower with Docker](https://flo
 - Join the Flower community!
   - [Flower Slack](https://flower.ai/join-slack/)
   - [Flower Discuss](https://discuss.flower.ai/)
+
+
+
+- flwr run . --run-config "fraction-train=0.5 num-server-rounds=450 local-epochs=1 lr=0.01 batch-size=10 iid=false"
