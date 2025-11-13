@@ -184,11 +184,11 @@ if __name__ == "__main__":
         # Create CSV for Part A training data (debug version)
         try:
             create_shanghaitech_csv(
-                data_root=r"d:\Research\FL_experiments",
-                output_csv="shanghaitech_train_debug.csv",
-                part="A",
-                split="train"
-            )
+        	data_root=Path("/thay_thoainam/workspace/manhcuong/FederatedLearning_OC/datasets"),
+        	output_csv="shanghaitech_train.csv",
+        	part="A",
+        	split="train"
+    		)
         except Exception as e:
             print(f"\n❌ Error: {e}")
             print("\nTip: Check that your dataset path is correct.")
