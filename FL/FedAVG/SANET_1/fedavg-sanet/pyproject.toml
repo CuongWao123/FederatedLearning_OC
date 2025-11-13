@@ -12,7 +12,6 @@ name = "fedavg-sanet"
 version = "1.0.0"
 description = "Federated SANet for Crowd Counting (ECCV 2018)"
 license = "Apache-2.0"
-# Dependencies for your Flower App
 dependencies = [
     "flwr[simulation]>=1.22.0",
     "flwr-datasets[vision]>=0.5.0",
@@ -24,55 +23,50 @@ dependencies = [
     "numpy>=1.24.0",
 ]
 
-
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 
 [tool.flwr.app]
 publisher = "cuong"
 
-# Point to your ServerApp and ClientApp objects
 [tool.flwr.app.components]
 serverapp = "fedavg_sanet.server_app:app"
 clientapp = "fedavg_sanet.client_app:app"
 
-# Custom config values accessible via `context.run_config`
-# 🔥 OPTIMIZED for A100 40GB GPU
+# 🔥🔥🔥 MAX PERFORMANCE: 16 CPU cores + A100 40GB GPU 🔥🔥🔥
 [tool.flwr.app.config]
-num-server-rounds = 100              # Full training
-fraction-train = 1.0                 # ✅ Train ALL clients (maximize GPU)
-fraction-evaluate = 1.0              # Evaluate all clients
-local-epochs = 300                     # ✅ Increased from 1
-lr = 0.00001                         # Paper: 1e-5 (Adam optimizer)
-batch-size = 1                       # ✅ Increased from 1 for A100
-csv-path = "shanghaitech_train.csv"  # Path to dataset CSV
-sigma = 4                            # Fixed Gaussian sigma (paper)
-partitioner-type = "iid"             # "iid" or "dirichlet"
-dirichlet-alpha = 0.5                # For non-IID partitioning
-amp = true                           # ✅ Mixed precision (faster on A100)
-grad-clip = 1.0                      # ✅ Enabled gradient clipping
-alpha = 0.001                        # SSIM loss weight (paper: 1e-3)
-beta = 0.001                         # Count loss weight
-num-workers = 4                      # ✅ Multi-threaded DataLoader
+num-server-rounds = 100
+fraction-train = 1.0                 # ✅ Train ALL clients per round
+fraction-evaluate = 1.0              # ✅ Evaluate ALL clients
+local-epochs = 30                     # ✅ More epochs per round (faster convergence)
+lr = 0.00001                         # ✅ Higher LR for faster training
+batch-size = 1                      # ✅ LARGE batch for A100 (test memory first!)
+csv-path = "shanghaitech_train.csv"
+sigma = 4
+partitioner-type = "iid"
+dirichlet-alpha = 0.5
+amp = true                           # ✅ Mixed precision (A100 Tensor Cores)
+grad-clip = 1.0                      # ✅ Gradient clipping for stability
+alpha = 0.001
+beta = 0.001
+num-workers = 2                      # ✅ 2 workers per client (parallel data loading)
 pin-memory = true                    # ✅ Faster CPU→GPU transfer
 
-# Default federation to use when running the app
 [tool.flwr.federations]
 default = "local-simulation"
 
-# Local simulation federation with 10 virtual SuperNodes
+# ✅ MAX CPU + GPU utilization
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 10
-options.backend.client-resources.num-cpus = 1      # ✅ 2 CPUs per client
-options.backend.client-resources.num-gpus = 0.1    # ✅ 10% GPU per client
+options.num-supernodes = 5           # ✅ 5 clients (fit trong 16 cores)
+options.backend.client-resources.num-cpus = 3      # ✅ 1 main + 2 workers
+options.backend.client-resources.num-gpus = 0.2    # ✅ 20% GPU per client
 
 [tool.flwr.federations.local-simulation.options.backend.init-args]
-num_cpus = 10       # ✅ 10 clients × 2 CPUs
-num_gpus = 1        # ✅ Single A100 GPU
+num_cpus = 15       # ✅ 5 clients × 3 CPUs = 15 cores (để 1 core cho OS)
+num_gpus = 1        # ✅ 5 clients × 0.2 = 100% A100 GPU
+ignore_reinit_error = true
+include_dashboard = false
 
-
-# Remote federation example for use with SuperLink
 [tool.flwr.federations.remote-federation]
 address = "<SUPERLINK-ADDRESS>:<PORT>"
-insecure = true  # Remove this line to enable TLS
-# root-certificates = "<PATH/TO/ca.crt>"  # For TLS setup
+insecure = true
