@@ -33,37 +33,37 @@ publisher = "cuong"
 serverapp = "fedavg_sanet.server_app:app"
 clientapp = "fedavg_sanet.client_app:app"
 
-# 🔥🔥🔥 MAX PERFORMANCE: 16 CPU cores + A100 40GB GPU 🔥🔥🔥
+# 🔥 Optimized: 10 cores + A100 GPU với 2 workers/client
 [tool.flwr.app.config]
 num-server-rounds = 100
-fraction-train = 1.0                 # ✅ Train ALL clients per round
-fraction-evaluate = 1.0              # ✅ Evaluate ALL clients
-local-epochs = 30                     # ✅ More epochs per round (faster convergence)
-lr = 0.00001                         # ✅ Higher LR for faster training
-batch-size = 1                      # ✅ LARGE batch for A100 (test memory first!)
+fraction-train = 0.5                 # ✅ Train 50% clients/round (5 clients)
+fraction-evaluate = 1.0              
+local-epochs = 30                     
+lr = 0.00001
+batch-size = 1                       # ✅ A100 có thể handle batch lớn
 csv-path = "shanghaitech_train.csv"
 sigma = 4
 partitioner-type = "iid"
 dirichlet-alpha = 0.5
-amp = true                           # ✅ Mixed precision (A100 Tensor Cores)
-grad-clip = 1.0                      # ✅ Gradient clipping for stability
+amp = true                           
+grad-clip = 1.0                      
 alpha = 0.001
 beta = 0.001
-num-workers = 2                      # ✅ 2 workers per client (parallel data loading)
-pin-memory = true                    # ✅ Faster CPU→GPU transfer
+num-workers = 2                      # ✅ 2 worker threads/client
+pin-memory = true                    
 
 [tool.flwr.federations]
 default = "local-simulation"
 
-# ✅ MAX CPU + GPU utilization
+# ✅ Config: 10 cores cho 5 clients parallel (mỗi client 2 workers)
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 5           # ✅ 5 clients (fit trong 16 cores)
-options.backend.client-resources.num-cpus = 3      # ✅ 1 main + 2 workers
-options.backend.client-resources.num-gpus = 0.2    # ✅ 20% GPU per client
+options.num-supernodes = 10          # 10 clients total
+options.backend.client-resources.num-cpus = 2      # ✅ 2 cores/client (main + 2 workers cần ~2 cores)
+options.backend.client-resources.num-gpus = 0.2    # ✅ 20% GPU/client
 
 [tool.flwr.federations.local-simulation.options.backend.init-args]
-num_cpus = 15       # ✅ 5 clients × 3 CPUs = 15 cores (để 1 core cho OS)
-num_gpus = 1        # ✅ 5 clients × 0.2 = 100% A100 GPU
+num_cpus = 10       # ✅ 10 cores total (5 active clients × 2 cores)
+num_gpus = 1        # ✅ Single A100 GPU
 ignore_reinit_error = true
 include_dashboard = false
 
