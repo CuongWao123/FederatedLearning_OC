@@ -563,12 +563,12 @@ def load_data(
     return trainloader, testloader
 
 
-def get_device(gpu_id: int = 1) -> torch.device:
+def get_device(gpu_id: int = 0) -> torch.device:
     """
     Force specific GPU usage.
     
     Args:
-        gpu_id: GPU index to use (default: 1 for GPU 1)
+        gpu_id: GPU index to use (default: 0 for GPU 0)
     
     Returns:
         torch.device configured for specified GPU
@@ -603,10 +603,10 @@ def train(
     ssim_window: int = 11,
     ssim_sigma: float = 1.5,
 ):
-    """Train cho crowd counting. Force GPU 1 by default."""
-    # Force GPU 1 if device not specified
+    """Train cho crowd counting. Force GPU 0 by default."""
+    # Force GPU 0 if device not specified
     if device is None:
-        device = get_device(gpu_id=1)
+        device = get_device(gpu_id=0)
     
     net.to(device)
     net.train()
@@ -660,10 +660,10 @@ def test_fn(
     ssim_window: int = 11,
     ssim_sigma: float = 1.5,
 ):
-    """Evaluate cho crowd counting. Force GPU 1 by default."""
-    # Force GPU 1 if device not specified
+    """Evaluate cho crowd counting. Force GPU 0 by default."""
+    # Force GPU 0 if device not specified
     if device is None:
-        device = get_device(gpu_id=1)
+        device = get_device(gpu_id=0)
     
     net.to(device)
     net.eval()

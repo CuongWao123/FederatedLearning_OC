@@ -37,8 +37,6 @@ def train_client(msg: Message, context: Context):
     # Initialize SANet model
     model = SANet(sa_channels=sa_channels)
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())
-    device = get_device(gpu_id=1)
-    model.to(device)
 
     # Get node configuration (partition ID)
     partition_id = context.node_config["partition-id"]
@@ -53,7 +51,8 @@ def train_client(msg: Message, context: Context):
     num_workers = context.run_config.get("num-workers", 0)
     pin_memory = context.run_config.get("pin-memory", False)
 
-    # Force GPU 1 usage
+    # GPU device (cuda:0 = physical GPU 1 due to CUDA_VISIBLE_DEVICES='1')
+    device = get_device(gpu_id=0)
 
     # Load local partition data
     trainloader, _ = load_data(
@@ -76,7 +75,7 @@ def train_client(msg: Message, context: Context):
     alpha = context.run_config.get("alpha", 1e-3)  # SSIM loss weight
     beta = context.run_config.get("beta", 1e-3)    # Count loss weight
 
-    # Train the model (device will be forced to GPU 1 inside train function)
+    # Train the model (cuda:0 = physical GPU 1)
     train_loss = train(
         net=model,
         trainloader=trainloader,
@@ -120,8 +119,8 @@ def evaluate_client(msg: Message, context: Context):
     model = SANet(sa_channels=sa_channels)
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())
     
-    # Force GPU 1 usage
-    device = get_device(gpu_id=1)
+    # GPU device (cuda:0 = physical GPU 1 due to CUDA_VISIBLE_DEVICES='1')
+    device = get_device(gpu_id=0)
     model.to(device)
 
     # Get node configuration

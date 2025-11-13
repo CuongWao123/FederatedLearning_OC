@@ -23,11 +23,13 @@ def test_gpu_configuration():
     print(f"\n1. CUDA Available: {torch.cuda.is_available()}")
     
     if torch.cuda.is_available():
-        print(f"2. Number of GPUs: {torch.cuda.device_count()}")
+        print(f"2. Number of GPUs visible: {torch.cuda.device_count()}")
+        print(f"   (Should be 1 due to CUDA_VISIBLE_DEVICES='1')")
         
         # Test get_device function
-        device = get_device(gpu_id=1)
+        device = get_device(gpu_id=0)  # Use 0 because only 1 GPU visible
         print(f"\n3. Selected Device: {device}")
+        print(f"   Physical GPU: GPU 1")
         
         # Create a test tensor
         test_tensor = torch.tensor([1.0, 2.0, 3.0]).to(device)

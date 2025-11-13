@@ -39,7 +39,7 @@ clientapp = "fedavg_sanet.client_app:app"
 # Custom config values accessible via `context.run_config`
 # Paper: SANet (ECCV 2018) - Crowd Counting
 [tool.flwr.app.config]
-num-server-rounds = 100              # Paper: 400 epochs (start với 100 cho test)
+num-server-rounds = 2                # Test với 2 rounds trước
 fraction-train = 0.2                 # Train with 20% clients per round
 fraction-evaluate = 1.0              # Evaluate all clients
 local-epochs = 1                     # 1 epoch per round
@@ -63,19 +63,8 @@ default = "local-simulation"
 # Local simulation federation with 10 virtual SuperNodes
 [tool.flwr.federations.local-simulation]
 options.num-supernodes = 10
-
-# ✅ FORCE GPU 1 - Client resources
 options.backend.client-resources.num-cpus = 1
-options.backend.client-resources.num-gpus = 0.1  # Each client uses 10% of GPU 1 (10 clients total = 100%)
-
-# ✅ FORCE GPU 1 - Backend initialization
-[tool.flwr.federations.local-simulation.options.backend.init_args]
-num_cpus = 4           # Use 4 CPU cores
-num_gpus = 1           # Only use 1 GPU (will be GPU 1 due to CUDA_VISIBLE_DEVICES)
-
-# ✅ CRITICAL: Set environment variable to only see GPU 1
-[tool.flwr.federations.local-simulation.options.backend.init_args.runtime_env]
-env_vars = {CUDA_VISIBLE_DEVICES = "1"}  # Only GPU index 1 is visible
+options.backend.client-resources.num-gpus = 0.1
 
 
 # Remote federation example for use with SuperLink
