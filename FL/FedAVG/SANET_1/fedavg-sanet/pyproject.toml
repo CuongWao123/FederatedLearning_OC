@@ -37,24 +37,24 @@ serverapp = "fedavg_sanet.server_app:app"
 clientapp = "fedavg_sanet.client_app:app"
 
 # Custom config values accessible via `context.run_config`
-# Paper: SANet (ECCV 2018) - Crowd Counting
+# 🔥 OPTIMIZED for A100 40GB GPU
 [tool.flwr.app.config]
-num-server-rounds = 2                # Test với 2 rounds trước
-fraction-train = 0.2                 # Train with 20% clients per round
+num-server-rounds = 100              # Full training
+fraction-train = 1.0                 # ✅ Train ALL clients (maximize GPU)
 fraction-evaluate = 1.0              # Evaluate all clients
-local-epochs = 1                     # 1 epoch per round
+local-epochs = 300                     # ✅ Increased from 1
 lr = 0.00001                         # Paper: 1e-5 (Adam optimizer)
-batch-size = 1                       # 1 vì patches có size khác nhau
-csv-path = "shanghaitech_train_debug.csv"  # Path to dataset CSV
+batch-size = 1                       # ✅ Increased from 1 for A100
+csv-path = "shanghaitech_train.csv"  # Path to dataset CSV
 sigma = 4                            # Fixed Gaussian sigma (paper)
 partitioner-type = "iid"             # "iid" or "dirichlet"
 dirichlet-alpha = 0.5                # For non-IID partitioning
-amp = true                           # Automatic Mixed Precision
-grad-clip = 0.0                      # Gradient clipping (0 = disabled)
+amp = true                           # ✅ Mixed precision (faster on A100)
+grad-clip = 1.0                      # ✅ Enabled gradient clipping
 alpha = 0.001                        # SSIM loss weight (paper: 1e-3)
 beta = 0.001                         # Count loss weight
-num-workers = 0                      # DataLoader workers
-pin-memory = false                   # Pin memory for GPU
+num-workers = 4                      # ✅ Multi-threaded DataLoader
+pin-memory = true                    # ✅ Faster CPU→GPU transfer
 
 # Default federation to use when running the app
 [tool.flwr.federations]
@@ -63,8 +63,12 @@ default = "local-simulation"
 # Local simulation federation with 10 virtual SuperNodes
 [tool.flwr.federations.local-simulation]
 options.num-supernodes = 10
-options.backend.client-resources.num-cpus = 1
-options.backend.client-resources.num-gpus = 0.1
+options.backend.client-resources.num-cpus = 2      # ✅ 2 CPUs per client
+options.backend.client-resources.num-gpus = 0.1    # ✅ 10% GPU per client
+
+[tool.flwr.federations.local-simulation.options.backend.init-args]
+num_cpus = 20       # ✅ 10 clients × 2 CPUs
+num_gpus = 1        # ✅ Single A100 GPU
 
 
 # Remote federation example for use with SuperLink

@@ -257,8 +257,8 @@ def main(grid: Grid, context: Context) -> None:
         "grad-clip": context.run_config.get("grad-clip", 0.0),
         "alpha": context.run_config.get("alpha", 1e-3),  # SSIM loss weight
         "beta": context.run_config.get("beta", 1e-3),    # Count loss weight
-        "num-workers": context.run_config.get("num-workers", 0),
-        "pin-memory": context.run_config.get("pin-memory", False),
+        "num-workers": context.run_config.get("num-workers", 4),
+        "pin-memory": context.run_config.get("pin-memory", True),
         "sa-channels": list(sa_channels),  # ✅ Convert tuple to list
     })
 
@@ -267,7 +267,7 @@ def main(grid: Grid, context: Context) -> None:
     print(f"  Fraction fit:       {fraction_train}")
     print(f"  Fraction evaluate:  {fraction_evaluate}\n")
     
-    strategy = SANetFedAvg(fraction_train=fraction_train)
+    strategy = FedAvg(fraction_train=fraction_train)
 
     # Start federated learning
     print("🚀 Starting Federated Learning...\n")
