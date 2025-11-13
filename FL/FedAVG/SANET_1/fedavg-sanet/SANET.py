@@ -563,12 +563,39 @@ def load_data(
     return trainloader, testloader
 
 
+def get_device(gpu_id: int = 1) -> torch.device:
+    """
+    Force specific GPU usage.
+    
+    Args:
+        gpu_id: GPU index to use (default: 1 for GPU 1)
+    
+    Returns:
+        torch.device configured for specified GPU
+    """
+    if torch.cuda.is_available():
+        if torch.cuda.device_count() > gpu_id:
+            device = torch.device(f"cuda:{gpu_id}")
+            gpu_name = torch.cuda.get_device_name(gpu_id)
+            print(f"🎮 Using GPU {gpu_id}: {gpu_name}")
+        else:
+            available = torch.cuda.device_count()
+            print(f"⚠️  GPU {gpu_id} not available (only {available} GPU(s) found)")
+            device = torch.device("cuda:0")
+            print(f"🎮 Falling back to GPU 0: {torch.cuda.get_device_name(0)}")
+    else:
+        device = torch.device("cpu")
+        print(f"⚠️  No GPU available, using CPU")
+    
+    return device
+
+
 def train(
     net,
     trainloader,
     epochs: int,
     lr: float,
-    device: torch.device,
+    device: torch.device = None,  # Made optional
     amp: bool = True,
     grad_clip: float = 0.0,
     alpha: float = 1e-3,
@@ -576,7 +603,11 @@ def train(
     ssim_window: int = 11,
     ssim_sigma: float = 1.5,
 ):
-    """Train cho crowd counting."""
+    """Train cho crowd counting. Force GPU 1 by default."""
+    # Force GPU 1 if device not specified
+    if device is None:
+        device = get_device(gpu_id=1)
+    
     net.to(device)
     net.train()
 
@@ -623,13 +654,17 @@ def train(
 def test_fn(
     net,
     valloader,
-    device: torch.device,
+    device: torch.device = None,  # Made optional
     alpha: float = 1e-3,
     beta: float = 1e-3,
     ssim_window: int = 11,
     ssim_sigma: float = 1.5,
 ):
-    """Evaluate cho crowd counting."""
+    """Evaluate cho crowd counting. Force GPU 1 by default."""
+    # Force GPU 1 if device not specified
+    if device is None:
+        device = get_device(gpu_id=1)
+    
     net.to(device)
     net.eval()
 

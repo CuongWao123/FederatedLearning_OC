@@ -1,5 +1,9 @@
 """SANet Crowd Counting: Flower Client App for Federated Learning."""
 
+import os
+# Force GPU 1 usage
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+
 import torch
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from flwr.clientapp import ClientApp
@@ -9,7 +13,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from SANET import SANet, load_data, train, test_fn
+from SANET import SANet, load_data, train, test_fn, get_device
 
 # Flower ClientApp
 app = ClientApp()
@@ -33,7 +37,7 @@ def train_client(msg: Message, context: Context):
     # Initialize SANet model
     model = SANet(sa_channels=sa_channels)
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = get_device(gpu_id=1)
     model.to(device)
 
     # Get node configuration (partition ID)
@@ -48,6 +52,8 @@ def train_client(msg: Message, context: Context):
     dirichlet_alpha = context.run_config.get("dirichlet-alpha", 0.5)
     num_workers = context.run_config.get("num-workers", 0)
     pin_memory = context.run_config.get("pin-memory", False)
+
+    # Force GPU 1 usage
 
     # Load local partition data
     trainloader, _ = load_data(
@@ -70,7 +76,7 @@ def train_client(msg: Message, context: Context):
     alpha = context.run_config.get("alpha", 1e-3)  # SSIM loss weight
     beta = context.run_config.get("beta", 1e-3)    # Count loss weight
 
-    # Train the model
+    # Train the model (device will be forced to GPU 1 inside train function)
     train_loss = train(
         net=model,
         trainloader=trainloader,
@@ -113,7 +119,9 @@ def evaluate_client(msg: Message, context: Context):
     # Initialize SANet model
     model = SANet(sa_channels=sa_channels)
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    # Force GPU 1 usage
+    device = get_device(gpu_id=1)
     model.to(device)
 
     # Get node configuration
