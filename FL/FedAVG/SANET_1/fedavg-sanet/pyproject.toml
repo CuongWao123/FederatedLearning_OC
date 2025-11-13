@@ -42,7 +42,7 @@ clientapp = "fedavg_sanet.client_app:app"
 num-server-rounds = 100              # Paper: 400 epochs (start với 100 cho test)
 fraction-train = 0.2                 # Train with 20% clients per round
 fraction-evaluate = 1.0              # Evaluate all clients
-local-epochs = 1                  # 1 epoch per round
+local-epochs = 1                     # 1 epoch per round
 lr = 0.00001                         # Paper: 1e-5 (Adam optimizer)
 batch-size = 1                       # 1 vì patches có size khác nhau
 csv-path = "shanghaitech_train_debug.csv"  # Path to dataset CSV
@@ -63,10 +63,19 @@ default = "local-simulation"
 # Local simulation federation with 10 virtual SuperNodes
 [tool.flwr.federations.local-simulation]
 options.num-supernodes = 10
-options.backend.client-resources.num-cpus = 1 # Each ClientApp will get assigned 1 CPU core
-options.backend.client-resources.num-gpus = 0.5 # Each ClientApp will get 50% of each available GPU
-options.backend.init_args.num_cpus = 1 # Only expose 1 CPU to the simulation
-options.backend.init_args.num_gpus = 1 # Expose a single GPU to the simulation
+
+# ✅ FORCE GPU 1 - Client resources
+options.backend.client-resources.num-cpus = 1
+options.backend.client-resources.num-gpus = 0.1  # Each client uses 10% of GPU 1 (10 clients total = 100%)
+
+# ✅ FORCE GPU 1 - Backend initialization
+[tool.flwr.federations.local-simulation.options.backend.init_args]
+num_cpus = 4           # Use 4 CPU cores
+num_gpus = 1           # Only use 1 GPU (will be GPU 1 due to CUDA_VISIBLE_DEVICES)
+
+# ✅ CRITICAL: Set environment variable to only see GPU 1
+[tool.flwr.federations.local-simulation.options.backend.init_args.runtime_env]
+env_vars = {CUDA_VISIBLE_DEVICES = "1"}  # Only GPU index 1 is visible
 
 
 # Remote federation example for use with SuperLink
