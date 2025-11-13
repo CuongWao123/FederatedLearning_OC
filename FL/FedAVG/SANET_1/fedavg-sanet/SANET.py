@@ -216,7 +216,7 @@ class SANetLoss(nn.Module):
         l_count = count_error.mean()
         
         # Total loss
-        loss = l2 + self.alpha * l_ssim + self.beta * l_count
+        loss = l2 + self.alpha * l_ssim  #  + self.beta * l_count
         
         return loss
 

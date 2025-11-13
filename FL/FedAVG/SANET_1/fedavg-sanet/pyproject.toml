@@ -63,11 +63,11 @@ default = "local-simulation"
 # Local simulation federation with 10 virtual SuperNodes
 [tool.flwr.federations.local-simulation]
 options.num-supernodes = 10
-options.backend.client-resources.num-cpus = 2      # ✅ 2 CPUs per client
+options.backend.client-resources.num-cpus = 1      # ✅ 2 CPUs per client
 options.backend.client-resources.num-gpus = 0.1    # ✅ 10% GPU per client
 
 [tool.flwr.federations.local-simulation.options.backend.init-args]
-num_cpus = 20       # ✅ 10 clients × 2 CPUs
+num_cpus = 10       # ✅ 10 clients × 2 CPUs
 num_gpus = 1        # ✅ Single A100 GPU
 
 
