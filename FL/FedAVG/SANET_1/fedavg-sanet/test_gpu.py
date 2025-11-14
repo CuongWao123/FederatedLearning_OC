@@ -1,8 +1,9 @@
 """Test GPU 1 usage configuration."""
 
 import os
+
 # Force GPU 1
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 import torch
 import sys
@@ -65,4 +66,5 @@ def test_gpu_configuration():
 
 
 if __name__ == "__main__":
-    test_gpu_configuration()
+     test_gpu_configuration()
+    # get_device(gpu_id=0)  # For manual testing

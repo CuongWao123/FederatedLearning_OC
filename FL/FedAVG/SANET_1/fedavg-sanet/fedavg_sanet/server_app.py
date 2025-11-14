@@ -285,138 +285,143 @@ def main(grid: Grid, context: Context) -> None:
     
     end_time = datetime.now()
     elapsed = end_time - start_time
-
-    # Create models directory
+    print(f"\n⏰ Federated Learning completed in: {elapsed}\n")
+    #Create models directory
     print("\n" + "="*70)
     print("💾 Saving models and training history...")
-    
-    models_dir = Path("models")
-    models_dir.mkdir(exist_ok=True)
-    
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
-    # Save final model
-    final_model_filename = f"sanet_fedavg_final_{partitioner_type}_r{num_rounds}_{timestamp}.pth"
-    final_model_path = models_dir / final_model_filename
-    
-    final_state_dict = final_arrays.to_torch_state_dict()
-    torch.save({
-        'model_state_dict': final_state_dict,
-        'config': {
-            'sa_channels': sa_channels,
-            'num_rounds': num_rounds,
-            'learning_rate': lr,
-            'partitioner_type': partitioner_type,
-            'timestamp': timestamp,
-            'total_params': total_params,
-        },
-        'training_info': {
-            'total_time': str(elapsed),
-            'num_rounds': num_rounds,
-            'final_mae': strategy.history['mae'][-1] if strategy.history['mae'] else None,
-            'final_rmse': strategy.history['rmse'][-1] if strategy.history['rmse'] else None,
-        }
-    }, final_model_path)
-    
-    print(f"\n  ✓ Final model saved: {final_model_path}")
-    print(f"    File size: {final_model_path.stat().st_size / 1024 / 1024:.2f} MB")
-    
-    # Save best model (if different from final)
-    if strategy.best_mae < float('inf'):
-        best_model_filename = f"sanet_fedavg_best_mae{strategy.best_mae:.2f}_r{strategy.best_round}_{timestamp}.pth"
-        best_model_path = models_dir / best_model_filename
-        
-        # Note: We save final model as best since we don't track arrays per round
-        # In production, you'd save arrays at each round
-        torch.save({
-            'model_state_dict': final_state_dict,
-            'config': {
-                'sa_channels': sa_channels,
-                'num_rounds': num_rounds,
-                'learning_rate': lr,
-                'partitioner_type': partitioner_type,
-                'timestamp': timestamp,
-                'total_params': total_params,
-            },
-            'best_metrics': {
-                'best_round': strategy.best_round,
-                'best_mae': strategy.best_mae,
-                'best_rmse': strategy.best_rmse,
-            },
-            'training_info': {
-                'total_time': str(elapsed),
-                'num_rounds': num_rounds,
-            }
-        }, best_model_path)
-        
-        print(f"\n  ✓ Best model saved: {best_model_path}")
-        print(f"    Best MAE:  {strategy.best_mae:.2f} at round {strategy.best_round}")
-        print(f"    Best RMSE: {strategy.best_rmse:.2f}")
-    
-    # Save training history to JSON
-    history_filename = f"training_history_{partitioner_type}_r{num_rounds}_{timestamp}.json"
-    history_path = models_dir / history_filename
-    
-    history_data = {
-        'config': {
-            'sa_channels': list(sa_channels),
-            'num_rounds': num_rounds,
-            'learning_rate': lr,
-            'batch_size': batch_size,
-            'partitioner_type': partitioner_type,
-            'timestamp': timestamp,
-        },
-        'best_metrics': {
-            'best_round': strategy.best_round,
-            'best_mae': strategy.best_mae,
-            'best_rmse': strategy.best_rmse,
-        },
-        'history': {
-            'rounds': strategy.history['rounds'],
-            'eval_loss': strategy.history['eval_loss'],
-            'mae': strategy.history['mae'],
-            'rmse': strategy.history['rmse'],
-        },
-        'training_info': {
-            'total_time': str(elapsed),
-            'total_params': total_params,
-        }
-    }
-    
-    with open(history_path, 'w') as f:
-        json.dump(history_data, f, indent=2)
-    
-    print(f"\n  ✓ Training history saved: {history_path}")
-    
-    # Print final summary
     print("\n" + "="*70)
-    print("📊 Training Summary")
-    print("="*70)
-    print(f"  Duration:           {elapsed}")
-    print(f"  Total rounds:       {num_rounds}")
-    print(f"  Total params:       {total_params:,}")
-    print(f"\n  Final Performance:")
-    if strategy.history['mae']:
-        print(f"    Final MAE:        {strategy.history['mae'][-1]:.2f} persons")
-        print(f"    Final RMSE:       {strategy.history['rmse'][-1]:.2f} persons")
-    print(f"\n  Best Performance:")
-    print(f"    Best MAE:         {strategy.best_mae:.2f} persons (Round {strategy.best_round})")
-    print(f"    Best RMSE:        {strategy.best_rmse:.2f} persons")
+    print("💾 Saving final global model...")
+    state_dict = result.arrays.to_torch_state_dict()
+    save_path = "final_model.pt"
+    torch.save(state_dict, save_path)
+    print(f"✓ Saved: {save_path}")
+    # models_dir = Path("models")
+    # models_dir.mkdir(exist_ok=True)
     
-    # Paper benchmark comparison
-    print(f"\n  Paper Benchmark (ShanghaiTech Part A):")
-    print(f"    SANet MAE:        ~67.0 persons")
-    print(f"    SANet RMSE:       ~104.5 persons")
+    # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     
-    # Performance comparison
-    if strategy.best_mae < float('inf'):
-        mae_diff = strategy.best_mae - 67.0
-        if mae_diff < 0:
-            print(f"\n  🎉 Better than paper by {abs(mae_diff):.2f} MAE!")
-        else:
-            print(f"\n  📈 Gap from paper: {mae_diff:.2f} MAE")
+    # # Save final model
+    # final_model_filename = f"sanet_fedavg_final_{partitioner_type}_r{num_rounds}_{timestamp}.pth"
+    # final_model_path = models_dir / final_model_filename
     
-    print("="*70)
+    # final_state_dict = final_arrays.to_torch_state_dict()
+    # torch.save({
+    #     'model_state_dict': final_state_dict,
+    #     'config': {
+    #         'sa_channels': sa_channels,
+    #         'num_rounds': num_rounds,
+    #         'learning_rate': lr,
+    #         'partitioner_type': partitioner_type,
+    #         'timestamp': timestamp,
+    #         'total_params': total_params,
+    #     },
+    #     'training_info': {
+    #         'total_time': str(elapsed),
+    #         'num_rounds': num_rounds,
+    #         'final_mae': strategy.history['mae'][-1] if strategy.history['mae'] else None,
+    #         'final_rmse': strategy.history['rmse'][-1] if strategy.history['rmse'] else None,
+    #     }
+    # }, final_model_path)
+    
+    # print(f"\n  ✓ Final model saved: {final_model_path}")
+    # print(f"    File size: {final_model_path.stat().st_size / 1024 / 1024:.2f} MB")
+    
+    # # Save best model (if different from final)
+    # if strategy.best_mae < float('inf'):
+    #     best_model_filename = f"sanet_fedavg_best_mae{strategy.best_mae:.2f}_r{strategy.best_round}_{timestamp}.pth"
+    #     best_model_path = models_dir / best_model_filename
+        
+    #     # Note: We save final model as best since we don't track arrays per round
+    #     # In production, you'd save arrays at each round
+    #     torch.save({
+    #         'model_state_dict': final_state_dict,
+    #         'config': {
+    #             'sa_channels': sa_channels,
+    #             'num_rounds': num_rounds,
+    #             'learning_rate': lr,
+    #             'partitioner_type': partitioner_type,
+    #             'timestamp': timestamp,
+    #             'total_params': total_params,
+    #         },
+    #         'best_metrics': {
+    #             'best_round': strategy.best_round,
+    #             'best_mae': strategy.best_mae,
+    #             'best_rmse': strategy.best_rmse,
+    #         },
+    #         'training_info': {
+    #             'total_time': str(elapsed),
+    #             'num_rounds': num_rounds,
+    #         }
+    #     }, best_model_path)
+        
+    #     print(f"\n  ✓ Best model saved: {best_model_path}")
+    #     print(f"    Best MAE:  {strategy.best_mae:.2f} at round {strategy.best_round}")
+    #     print(f"    Best RMSE: {strategy.best_rmse:.2f}")
+    
+    # # Save training history to JSON
+    # history_filename = f"training_history_{partitioner_type}_r{num_rounds}_{timestamp}.json"
+    # history_path = models_dir / history_filename
+    
+    # history_data = {
+    #     'config': {
+    #         'sa_channels': list(sa_channels),
+    #         'num_rounds': num_rounds,
+    #         'learning_rate': lr,
+    #         'batch_size': batch_size,
+    #         'partitioner_type': partitioner_type,
+    #         'timestamp': timestamp,
+    #     },
+    #     'best_metrics': {
+    #         'best_round': strategy.best_round,
+    #         'best_mae': strategy.best_mae,
+    #         'best_rmse': strategy.best_rmse,
+    #     },
+    #     'history': {
+    #         'rounds': strategy.history['rounds'],
+    #         'eval_loss': strategy.history['eval_loss'],
+    #         'mae': strategy.history['mae'],
+    #         'rmse': strategy.history['rmse'],
+    #     },
+    #     'training_info': {
+    #         'total_time': str(elapsed),
+    #         'total_params': total_params,
+    #     }
+    # }
+    
+    # with open(history_path, 'w') as f:
+    #     json.dump(history_data, f, indent=2)
+    
+    # print(f"\n  ✓ Training history saved: {history_path}")
+    
+    # # Print final summary
+    # print("\n" + "="*70)
+    # print("📊 Training Summary")
+    # print("="*70)
+    # print(f"  Duration:           {elapsed}")
+    # print(f"  Total rounds:       {num_rounds}")
+    # print(f"  Total params:       {total_params:,}")
+    # print(f"\n  Final Performance:")
+    # if strategy.history['mae']:
+    #     print(f"    Final MAE:        {strategy.history['mae'][-1]:.2f} persons")
+    #     print(f"    Final RMSE:       {strategy.history['rmse'][-1]:.2f} persons")
+    # print(f"\n  Best Performance:")
+    # print(f"    Best MAE:         {strategy.best_mae:.2f} persons (Round {strategy.best_round})")
+    # print(f"    Best RMSE:        {strategy.best_rmse:.2f} persons")
+    
+    # # Paper benchmark comparison
+    # print(f"\n  Paper Benchmark (ShanghaiTech Part A):")
+    # print(f"    SANet MAE:        ~67.0 persons")
+    # print(f"    SANet RMSE:       ~104.5 persons")
+    
+    # # Performance comparison
+    # if strategy.best_mae < float('inf'):
+    #     mae_diff = strategy.best_mae - 67.0
+    #     if mae_diff < 0:
+    #         print(f"\n  🎉 Better than paper by {abs(mae_diff):.2f} MAE!")
+    #     else:
+    #         print(f"\n  📈 Gap from paper: {mae_diff:.2f} MAE")
+    
+    # print("="*70)
     
     print("="*70 + "\n")
     print("✅ Federated Learning completed successfully!")
